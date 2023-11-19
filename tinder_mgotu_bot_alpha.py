@@ -2,7 +2,6 @@ import telebot
 from telebot import types
 import pandas as pd 
 import random2 as random
-import pickle
 
 bot = telebot.TeleBot('6719752669:AAFwkOODXVCbhJzgJ9m3-l5afDXmmTXeySs')
 
