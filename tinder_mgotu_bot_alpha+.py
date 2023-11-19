@@ -4,7 +4,7 @@ import pandas as pd
 import random
 import pickle
 
-bot = telebot.TeleBot('6719752669:AAFwkOODXVCbhJzgJ9m3-l5afDXmmTXeySs')
+bot = telebot.TeleBot('6719752669:AAEx6iwkPUkb8LZFqvF52dMgpJzj8OoVPmM')
 
 global id_link_1
 global id_link_2
@@ -162,7 +162,7 @@ def on_click_test(message):
         bot.register_next_step_handler(message, on_click_menu)
 
 # Подключаемся к файлу с данными
-df = pd.read_csv('./bio_train.txt', encoding='utf-8', header=None)
+df = pd.read_csv('./bio.txt', encoding='utf-8', header=None)
 df.columns = ['Link', 'Surname', 'Name', 'Group', 'Id']
 df = df[['Link', 'Name', 'Id']]
 
