@@ -1,2 +1,4 @@
 telebot
 pandas
+random2
+pickle
