@@ -1,7 +1,7 @@
 import telebot
 from telebot import types
 import pandas as pd 
-import random
+import random2
 import pickle
 
 bot = telebot.TeleBot('6719752669:AAFwkOODXVCbhJzgJ9m3-l5afDXmmTXeySs')
@@ -22,10 +22,10 @@ def get_random_number(user_id):
         users_state[user_id] = user_numbers  # Добавляем состояние для пользователя в словарь
 
     # Выбираем случайное число из общего списка значений
-    random_girl_IDs = random.sample([i for i in range(0, len(df['Link'])) if i not in users_state.get(user_id, [])], 1)
+    random_girl_IDs = random2.sample([i for i in range(0, len(df['Link'])) if i not in users_state.get(user_id, [])], 1)
 
     while random_girl_IDs in users_state.get(user_id, []):
-        random_girl_IDs = random.sample([i for i in range(0, len(df['Link'])) if i not in users_state.get(user_id, [])], 1)
+        random_girl_IDs = random2.sample([i for i in range(0, len(df['Link'])) if i not in users_state.get(user_id, [])], 1)
     else:   
         # Добавляем выбранные числа в список выбранных чисел для пользователя
         user_numbers.extend(random_girl_IDs)
