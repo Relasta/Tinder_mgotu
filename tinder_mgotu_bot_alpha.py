@@ -192,5 +192,5 @@ except FileNotFoundError:
 # Проверка логов пользователей по просмотренным фото
 # with open('users_state.pickle', 'rb') as f: 
 #     print(pickle.load(f))
-
+bot.delete_webhook()
 bot.infinity_polling()
