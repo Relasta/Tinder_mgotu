@@ -4,7 +4,7 @@ import pandas as pd
 import random2 as random
 import pickle
 
-bot = telebot.TeleBot('6719752669:AAFwkOODXVCbhJzgJ9m3-l5afDXmmTXeySs')
+bot = telebot.TeleBot('6719752669:AAEx6iwkPUkb8LZFqvF52dMgpJzj8OoVPmM')
 
 global id_link_1
 global id_link_2
