@@ -2,7 +2,7 @@ from random import randint
 import os.path, sys
 
 filename = 'bio_rait_train.txt'
-lines = [line.rstrip('\n') for line in open(filename, encoding='utf-8')] # encoding='utf-8' - ломает текст в файле, но нормаизует в терминале1
+lines = [line.rstrip('\n') for line in open(filename, encoding='utf-8')]
 
 # This is the parameter which makes "wins" more or less important
 # In normal chess games this is usually 20
