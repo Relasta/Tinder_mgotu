@@ -113,6 +113,7 @@ def on_click_menu(message):
         markup.add(btn1, btn2, btn3) # добавить кнопки в меню
 
         # создаем список с types файлов и ссылками на фото
+        # Когда пользователь выбирает правую или левую я добавляю баллы выбранному фото и уменьшаю для отвергнутого по id_link_1 and 2
         id_link_2 = get_random_number(message.from_user.id)
         photos = [types.InputMediaPhoto(id_link_1[0]),
         types.InputMediaPhoto(id_link_2[0])] 
