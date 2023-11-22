@@ -1,5 +1,11 @@
 from random import randint
-import os.path, sys
+import pandas as pd 
+
+df = pd.read_csv('./bio.txt', encoding='utf-8', header=None)
+df.columns = ['Link', 'Surname', 'Name', 'Group', 'Id']
+df_rating = df.assign(Count=float(0), Elo=float(1000)) 
+df_rating['FIO'] = df_rating['Name'] + df_rating['Surname']
+df_rating = df_rating[['FIO', 'Count', 'Elo']]
 
 filename = 'bio_rait_train.txt'
 lines = [line.rstrip('\n') for line in open(filename, encoding='utf-8')]
@@ -14,22 +20,21 @@ for i in lines:
         continue
     splitted = i.split(",")
     element_name = splitted[0].strip()
-    id_name = splitted[-2].strip()
     
-    if len(splitted) == 2:
+    if len(splitted) == 1:
         count = 0.0
         elo = 1000.0
     else:
         count = float(splitted[1].strip())
         elo = float(splitted[2].strip())
-    i = [element_name, count, elo, id_name]
+    i = [element_name, count, elo]
     list.append(i)
 
 l = len(list)
 try:
     while True:
-        # Получить два рандомных индекса
-        a = randint(0,l-1) 
+        # Get two random elements
+        a = randint(0,l-1)
         b = randint(0,l-1) 
         while a == b:
             b = randint(0,l-1)
@@ -42,7 +47,7 @@ try:
         R_b = element_b[2]
         E_a = 1/(1 + (10**((R_b - R_a)/480)))
         E_b = 1/(1 + (10**((R_a - R_b)/480)))
-
+        
         # После выбора <- / ->
         inpt = str(input("Которая лучше?\n[1] "+str(element_a[0])+" or [2] "+str(element_b[0]+'\n')))
 
@@ -63,16 +68,14 @@ try:
 
 # Остановка кода через - ctrl+c
 except KeyboardInterrupt as e:
-    print("\n")
-    for i in list:
-        print(i)
+    True
 
 write_string = ''
 # Сортировка по рейтингу сверху вниз
 while list != []:
     max = [0, 0, 0]
     for i in list:
-        if i[2] > max[2]:
+        if max[2] < i[2]:
             max = i
     for i in max:
         write_string += str(i)+", "
