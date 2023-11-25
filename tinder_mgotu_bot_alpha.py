@@ -13,7 +13,6 @@ def id_cleaner(girl_id):
     return 'https://ies.unitech-mo.ru/user?userid=' + str(girl_id)
 
 def get_random_number(user_id):
-
     # Проверяем, есть ли состояние для данного пользователя
     if user_id in users_state:
         user_numbers = users_state[user_id]  # Получаем список выбранных чисел для пользователя
@@ -91,7 +90,6 @@ def making_rating(df_rating, a, b, inpt):
 
 @bot.message_handler(commands=['start']) 
 def start(message): # message -- вся инфа о пользователе в виде словаря
-    bot.delete_message(chat_id=message.chat.id, message_id=message.message_id)
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
     btn1 = types.KeyboardButton('📊Статистика') 
     btn2 = types.KeyboardButton('🥰Перейти к сравнению') 
