@@ -4,7 +4,7 @@ import pandas as pd
 import random2 as random
 import pickle
 
-bot = telebot.TeleBot('6719752669:AAEaWTGqzEUS8iJbrX0EZZWhDSDg-nyMmng')
+bot = telebot.TeleBot('####')
 
 global id_link_1
 global id_link_2
@@ -109,8 +109,6 @@ def on_click_menu(message):
         markup.add(btn3)
         rating_list = df_rating.sort_values(by='Elo', ascending=False)[df_rating['Count'] != 0.0]['FIO'].head(10).to_list()
         rating_list = '\n'.join([f"{index + 1}. {line}" for index, line in enumerate(rating_list)])
-        # print(df_rating.sort_values(by='Elo', ascending=False)[df_rating['Count'] != 0.0]['FIO'].head(10).to_list())
-        # bot.send_message(message.chat.id, f'1.{rating_list[1-1]}\n2.{rating_list[2-1]}\n3.{rating_list[3-1]}\n4.{rating_list[4-1]}\n5.{rating_list[5-1]}\n6.{rating_list[6-1]}\n7.{rating_list[7-1]}\n8.{rating_list[8-1]}\n9.{rating_list[9-1]}\n10.{rating_list[10-1]}\n', reply_markup=markup) 
         bot.send_message(message.chat.id, 'Топ 10 красавиц нашего университета', reply_markup=markup)
         bot.send_message(message.chat.id, f'{rating_list}')
         bot.register_next_step_handler(message, on_click_menu)
